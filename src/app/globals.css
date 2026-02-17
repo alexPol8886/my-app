@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-mint: var(--mint);
+  --radius: 1.5rem;
+  /* More rounded corners like the reference */
+}
+
+/* Color Palette - Clean Mint & Pastel */
+:root {
+  /* Light Mode (Default) */
+  --background: #F4F6F9;
+  /* Very soft gray background */
+  --foreground: #1A1A1A;
+  /* Dark text (not pure black) */
+
+  --card: #FFFFFF;
+  --card-foreground: #1A1A1A;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #1A1A1A;
+
+  --primary: #00D68F;
+  /* Vibrant Mint Green */
+  --primary-foreground: #FFFFFF;
+
+  @supports (color: oklch(0 0 0)) {
+    --primary: oklch(75% 0.18 155);
+    /* More vibrant modern color */
+  }
+
+  --secondary: #EEF2F6;
+  /* Soft gray buttons */
+  --secondary-foreground: #475569;
+
+  --muted: #F1F5F9;
+  --muted-foreground: #94A3B8;
+
+  --accent: #E0F7FA;
+  /* Light teal accent for active states */
+  --accent-foreground: #00BFA5;
+
+  --destructive: #FF4D4D;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #00D68F;
+  --mint: #00D68F;
+
+  --radius: 1.5rem;
+}
+
+.dark {
+  /* Dark Mode - Deep Clean */
+  --background: #0F1115;
+  /* Deep slate black */
+  --foreground: #F8FAFC;
+
+  --card: #1C1F26;
+  /* Slightly lighter card */
+  --card-foreground: #F8FAFC;
+
+  --popover: #1C1F26;
+  --popover-foreground: #F8FAFC;
+
+  --primary: #00E39F;
+  /* Slightly brighter mint for dark mode */
+  --primary-foreground: #000000;
+
+  --secondary: #2A2D35;
+  --secondary-foreground: #94A3B8;
+
+  --muted: #1E293B;
+  --muted-foreground: #64748B;
+
+  --accent: rgba(0, 214, 143, 0.15);
+  --accent-foreground: #00E39F;
+
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #2D3139;
+  --input: #2D3139;
+  --ring: #00E39F;
+  --mint: #00E39F;
+}
+
+/* Base Styles */
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    /* Better typography */
+  }
+}
+
+/* Components & Utilities */
+@layer components {
+
+  /* Card Styles mimicking the reference */
+  .clean-card {
+    @apply bg-card text-card-foreground rounded-[2rem] shadow-sm border border-border/50;
+  }
+
+  /* The big FAB button shadow */
+  .shadow-mint {
+    box-shadow: 0 10px 25px -5px rgba(0, 214, 143, 0.4);
+  }
+
+  .dark .shadow-mint {
+    box-shadow: 0 10px 25px -5px rgba(0, 227, 159, 0.25);
+  }
+
+  /* Soft Inputs */
+  .soft-input {
+    @apply bg-secondary/50 border-transparent focus:bg-background focus:border-primary/50 transition-all duration-300 rounded-[1.2rem];
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+  /* Hide scrollbar for cleaner look */
+}
