@@ -80,6 +80,7 @@ export default function CircleDetailPage() {
           id: `${member.circle_id}-${member.user_id}`,
           user_id: member.user_id,
           role: member.role,
+          joined_at: member.joined_at,
           users: {
             id: member.user_id,
             email: member.users?.email
