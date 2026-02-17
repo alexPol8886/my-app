@@ -19,7 +19,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "CircleSync - Group Coordination Made Easy",
   description: "The social coordination platform for seamless group planning and ride sharing",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
